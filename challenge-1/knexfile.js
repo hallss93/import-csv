@@ -3,13 +3,13 @@ module.exports = {
     client: "sqlite3",
     useNullAsDefault: true,
     connection: {
-      filename: "./database/stream.db3",
+      filename: "./api/database/stream.db3",
     },
     migrations: {
-      directory: "./database/migrations",
+      directory: "./api/database/migrations",
     },
     seeds: {
-      directory: "./database/seeds",
+      directory: "./api/database/seeds",
     },
     pool: {
       afterCreate: (conn, done) => {

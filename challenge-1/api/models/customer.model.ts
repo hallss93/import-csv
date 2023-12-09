@@ -23,6 +23,10 @@ function find() {
   );
 }
 
+async function countCustomers(): Promise<any> {
+  return db("customers as c").count("id as CNT");
+}
+
 async function findBy(uuid: string) {
   const [customer] = await db("customers").where({ uuid });
   return customer;
@@ -32,4 +36,4 @@ function findById(id: number) {
   return db("customers").where({ id }).first();
 }
 
-export { create, find, findBy, findById };
+export { create, find, findBy, findById, countCustomers };

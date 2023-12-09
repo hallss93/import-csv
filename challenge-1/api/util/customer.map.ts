@@ -1,4 +1,4 @@
-import { Customer } from "./../interfaces/customer.interface";
+import { Customer } from "../interfaces/customer.interface";
 
 class CustomerMap {
   uuid?: string;

@@ -10,7 +10,7 @@ exports.up = function (knex) {
     tbl.string("last_name", 255).notNullable();
     tbl.string("company", 255).notNullable();
     tbl.string("city", 255).notNullable();
-    tbl.string("country", 255).notNullable();
+    tbl.string("country", 255).nullable();
     tbl.string("phone1", 255).notNullable();
     tbl.string("phone2", 255).notNullable();
     tbl.string("email", 255).notNullable();

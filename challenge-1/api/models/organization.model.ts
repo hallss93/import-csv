@@ -1,6 +1,6 @@
-import { Organization } from "api/interfaces/organization.interface";
+import db from "../database/dbConfig";
 
-const db = require("../database/dbConfig.js");
+import { Organization } from "../interfaces/organization.interface";
 
 async function create(organization: Organization) {
   const [id] = await db("organizations").insert(organization, "id");
@@ -8,16 +8,20 @@ async function create(organization: Organization) {
 }
 
 function find() {
-  return db("organizations as c").select(
-    "c.uuid",
-    "c.name",
-    "c.website",
-    "c.country",
-    "c.description",
-    "c.founded",
-    "c.industry",
-    "c.employees"
+  return db("organizations as o").select(
+    "o.uuid",
+    "o.name",
+    "o.website",
+    "o.country",
+    "o.description",
+    "o.founded",
+    "o.industry",
+    "o.employees"
   );
+}
+
+async function countOrganizations(): Promise<any> {
+  return db("organizations as o").count("id as ONT");
 }
 
 async function findBy(uuid: string) {
@@ -29,9 +33,4 @@ function findById(id: number) {
   return db("organizations").where({ id }).first();
 }
 
-module.exports = {
-  create,
-  find,
-  findBy,
-  findById,
-};
+export { create, find, findBy, findById, countOrganizations };

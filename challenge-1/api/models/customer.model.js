@@ -1,6 +1,6 @@
 const db = require("../database/dbConfig.js");
 
-async function addCustomer(customer) {
+async function create(customer) {
   const [id] = await db("customers").insert(customer, "id");
   return id;
 }
@@ -31,7 +31,7 @@ function findById(id) {
 }
 
 module.exports = {
-  addCustomer,
+  create,
   find,
   findBy,
   findById,

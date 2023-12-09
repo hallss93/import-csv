@@ -2,11 +2,11 @@
   "name": "challenge-1",
   "version": "1.0.0",
   "description": "## Instruções",
-  "type": "module",
   "main": "index.js",
   "scripts": {
     "serve": "nodemon index.js",
-    "start": "node index.js"
+    "start": "node index.js",
+    "migrate:latest": "knex migrate:latest"
   },
   "keywords": [],
   "author": "",
@@ -15,7 +15,10 @@
     "nodemon": "^3.0.2"
   },
   "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
     "express": "^4.18.2",
+    "helmet": "^7.1.0",
     "knex": "^3.1.0",
     "sqlite3": "^5.1.6"
   }

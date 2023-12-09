@@ -3,7 +3,7 @@ const helmet = require("helmet");
 const cors = require("cors");
 
 // imports
-const streamRouter = require("../routers/stream.router.js");
+const streamRouter = require("./routers/stream.router.js");
 
 // server
 const server = express();

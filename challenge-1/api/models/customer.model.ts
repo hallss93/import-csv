@@ -1,6 +1,8 @@
-const db = require("../database/dbConfig.js");
+import db from "../database/dbConfig";
 
-async function create(customer) {
+import { Customer } from "../interfaces/customer.interface";
+
+async function create(customer: Customer) {
   const [id] = await db("customers").insert(customer, "id");
   return id;
 }
@@ -21,18 +23,13 @@ function find() {
   );
 }
 
-async function findBy(uuid) {
+async function findBy(uuid: string) {
   const [customer] = await db("customers").where({ uuid });
   return customer;
 }
 
-function findById(id) {
+function findById(id: number) {
   return db("customers").where({ id }).first();
 }
 
-module.exports = {
-  create,
-  find,
-  findBy,
-  findById,
-};
+export { create, find, findBy, findById };

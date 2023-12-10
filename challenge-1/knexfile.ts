@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   development: {
     client: "sqlite3",
     useNullAsDefault: true,
@@ -12,7 +12,7 @@ module.exports = {
       directory: "./api/database/seeds",
     },
     pool: {
-      afterCreate: (conn, done) => {
+      afterCreate: (conn: any, done: any) => {
         conn.run("PRAGMA foreign_keys = ON", done);
       },
     },
